@@ -1,5 +1,6 @@
 import asyncio
 import uuid
+import os
 import gradio as gr
 import edge_tts
 from deep_translator import GoogleTranslator
@@ -290,4 +291,4 @@ def create_app():
 
 if __name__ == "__main__":
     app = create_app()
-    app.launch(share=True)
+    app.launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 10000)))
